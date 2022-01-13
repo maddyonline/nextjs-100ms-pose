@@ -9,6 +9,20 @@ npm run dev
 # or
 yarn dev
 ```
+install mediapipe and tensorflow dependencies
+
+```sh
+npm i @mediapipe/pose
+npm i @tensorflow-models/pose-detection --legacy-peer-deps
+npm i @tensorflow/tfjs-core
+npm i @tensorflow/tfjs-converter
+```
+
+Install recoil
+
+```sh
+npm i recoil
+```
 
 Open [http://localhost:3000/100ms](http://localhost:3000/100ms) with your browser to see the result.
 
