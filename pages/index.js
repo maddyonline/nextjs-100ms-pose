@@ -1,8 +1,23 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import React from 'react'
 import styles from '../styles/Home.module.css'
 
+import * as mpPose from '@mediapipe/pose';
+import * as posedetection from '@tensorflow-models/pose-detection';
+
 export default function Home() {
+  React.useEffect(() => {
+    const init = async () => {
+      const result = await posedetection.createDetector(posedetection.SupportedModels.BlazePose, {
+        runtime: 'mediapipe',
+        modelType: 'heavy',
+        solutionPath: `https://cdn.jsdelivr.net/npm/@mediapipe/pose@${mpPose.VERSION}`
+      });
+      console.log({ result })
+    }
+    init()
+  }, [])
   return (
     <div className={styles.container}>
       <Head>

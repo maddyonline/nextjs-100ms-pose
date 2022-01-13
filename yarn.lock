@@ -298,7 +298,12 @@
   dependencies:
     "rimraf" "^3.0.2"
 
-"@tensorflow/tfjs-core@^3.13.0", "@tensorflow/tfjs-core@^3.8.0":
+"@tensorflow/tfjs-converter@^3.13.0", "@tensorflow/tfjs-converter@^3.8.0":
+  "integrity" "sha512-H2VpDTv9Ve0HBt7ttzz46DmnsPaiT0B+yJjVH3NebGZbgY9C8boBgJIsdyqfiqEWBS3WxF8h4rh58Hv5XXMgaQ=="
+  "resolved" "https://registry.npmjs.org/@tensorflow/tfjs-converter/-/tfjs-converter-3.13.0.tgz"
+  "version" "3.13.0"
+
+"@tensorflow/tfjs-core@^3.13.0", "@tensorflow/tfjs-core@^3.8.0", "@tensorflow/tfjs-core@3.13.0":
   "integrity" "sha512-18qBEVIB/4u2OUK9nA5P1XT3e3LyarElD1UKNSNDpnMLxhLTUVZaCR71eHJcpl9wP2Q0cciaTJCTpJdPv1tNDQ=="
   "resolved" "https://registry.npmjs.org/@tensorflow/tfjs-core/-/tfjs-core-3.13.0.tgz"
   "version" "3.13.0"

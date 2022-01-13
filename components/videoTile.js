@@ -6,23 +6,19 @@ import {
 } from "@100mslive/hms-video-react";
 
 
-import {
-  atom,
-  useRecoilState,
-} from 'recoil';
 
-// Create a global state for holding poses
-const posesState = atom({
-  key: 'posesState', // unique ID (with respect to other atoms/selectors)
-  default: [], // default value (aka initial value)
-});
+
+import { usePoseTracker } from "../components/pose/pose_utils"
+
+import { posesState } from "./globals"
 
 
 const VideoTile = ({ peer, isLocal }) => {
-  const [poses, setPoses] = useRecoilState(posesState);
   const hmsActions = useHMSActions();
   const videoRef = React.useRef(null);
   const videoTrack = useHMSStore(selectCameraStreamByPeerID(peer.id));
+  if (!isLocal)
+    usePoseTracker({ videoRef, posesState })
 
   React.useEffect(() => {
     (async () => {
@@ -42,8 +38,8 @@ const VideoTile = ({ peer, isLocal }) => {
   return (
     <div className="flex m-1">
       <div className="relative">
-        <div style={{ backgroundColor: "white", color: 'red' }}>{"poses: "} {JSON.stringify(poses)}</div>
-        <button style={{ backgroundColor: "white", color: 'red' }} onClick={() => setPoses([{ id: 3 }])}>click</button>
+        {/* <div style={{ backgroundColor: "white", color: 'red' }}>{"poses: "} {JSON.stringify(poses)}</div> */}
+        {/* <button style={{ backgroundColor: "white", color: 'red' }} onClick={() => setPoses([{ id: 3 }])}>click</button> */}
         <video
           ref={videoRef}
           autoPlay={true}

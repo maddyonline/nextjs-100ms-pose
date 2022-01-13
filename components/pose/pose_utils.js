@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 
 import * as mpPose from '@mediapipe/pose';
 import * as posedetection from '@tensorflow-models/pose-detection';
@@ -7,11 +5,7 @@ import { drawPose } from './draw_utils';
 
 import React from 'react';
 import {
-    RecoilRoot,
-    atom,
-    selector,
     useRecoilState,
-    useRecoilValue,
 } from 'recoil';
 
 
@@ -39,7 +33,11 @@ export function usePoseTracker({ videoRef, posesState }) {
                 modelType: 'heavy',
                 solutionPath: `https://cdn.jsdelivr.net/npm/@mediapipe/pose@${mpPose.VERSION}`
             });
-            await runFrame();
+            console.log({ detector: poseDetector.current })
+            setTimeout(async () => {
+                console.log("now running pose estimation");
+                await runFrame();
+            }, 5000)
 
         }
         start();
